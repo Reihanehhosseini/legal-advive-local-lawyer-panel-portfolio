@@ -1,0 +1,35 @@
+import type { SVGProps } from 'react';
+
+export function XIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g clipPath="url(#clip0_1244_636)">
+        <rect width="20" height="20" rx="10" fill="currentColor" />
+        <path
+          d="M14.2394 4.33175L14.9858 4.61824L10.7348 8.97225L9.99314 8.69776L14.2394 4.33175Z"
+          fill="#4D774E"
+        />
+        <path
+          d="M8.59841 10.1549L9.36083 10.4249L4.76903 15.1306L4.01103 14.8729L8.59841 10.1549Z"
+          fill="#4D774E"
+        />
+        <path
+          d="M7.25599 5.08046L14.3691 14.267L12.2352 14.2669L5.11635 5.07001L7.25599 5.08046Z"
+          stroke="#4D774E"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1244_636">
+          <rect width="20" height="20" rx="4" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
