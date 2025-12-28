@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@import '../assets/fonts/yekan-bakh-fanum/fontiran.css';
+
+@theme {
+  --color-global-1: #0f0f0f;
+  --color-global-2: #afafaf;
+  --color-global-3: #d7dbe3;
+  --color-global-4: #f9f8f5;
+  --color-global-5: #9dc88d;
+  --color-global-6: #17c24a;
+  --color-global-7: #0d0d0d;
+  --color-global-8: #d9d9d9;
+  --color-global-9: #1c1c1c;
+  --color-global-10: #9dc88d;
+  --color-global-11: #d7dbe3;
+  --color-global-12: #f6faf4;
+  --color-global-13: #34c759;
+  --color-global-14: #ffcc00;
+  --color-global-15: #00254a;
+  --color-global-16: #ffecec;
+  --color-global-17: #b11d1d;
+  --color-global-18: #1e1e1e;
+  --color-global-19: #d32f2f;
+  --color-global-20: #2d91f4;
+  --color-primary: #4d774e;
+  --color-secondary: #f1b24a;
+  --color-background: #ffffff;
+  --color-background-alt: #f7f9fc;
+  --color-accent: #c8a45a;
+  --color-text-primary: #1b2a49;
+  --color-text-secondary: #6d7278;
+  --color-accent-blue: #0088ff;
+  --color-accent-orange: #ff8d28;
+  --color-accent-mint: #00c8b3;
+  --color-accent-indigo: #6155f5;
+  --color-accent-purple: #cb30e0;
+  --color-accent-red: #ff2d55;
+}
+body {
+  font-family: 'Yekan Bakh FaNum', Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--color-global-7);
+}
+
+a,
+button {
+  cursor: pointer;
+}
