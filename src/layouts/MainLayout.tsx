@@ -60,34 +60,48 @@ export default function MainLayout() {
     },
     {
       id: 5,
+      isLink: true,
+      lable: 'تقویم کاری',
+      href: '/orders',
+      icon: <LockIcon />,
+    },
+    {
+      id: 6,
       isLink: false,
       lable: 'پرسش و پاسخ حقوقی',
       href: '/faq',
       icon: <FaqIcon />,
     },
     {
-      id: 6,
+      id: 7,
       isLink: true,
       lable: 'ارزیابی های حقوقی',
       href: '/legal-assessments',
       icon: <CourtIcon />,
     },
     {
-      id: 7,
+      id: 8,
+      isLink: true,
+      lable: 'لیست درخواست های ارزیابی',
+      href: '/legal-assessments',
+      icon: <CourtIcon />,
+    },
+    {
+      id: 9,
       isLink: true,
       lable: 'امور مالی',
       href: '/financal',
       icon: <WalletIcon />,
     },
     {
-      id: 8,
+      id: 10,
       isLink: true,
       lable: 'دیدگاه ها',
       href: '/reviews',
       icon: <CommentsIcon />,
     },
     {
-      id: 9,
+      id: 11,
       isLink: true,
       lable: 'پشتیبانی',
       href: '/support',
@@ -151,7 +165,7 @@ export default function MainLayout() {
                     const isActive = isRouteActive(i.href, location.pathname);
 
                     return (
-                      <>
+                      <div className="w-full">
                         {i.isLink ? (
                           <Link
                             to={i.href}
@@ -183,11 +197,11 @@ export default function MainLayout() {
                               {i.lable}
                             </span>
                           </Link>
-                        ) : (
+                        ) : !i.isLink && i.href === '/faq' ? (
                           <SimpleAccordion
                             title={
-                              <Link
-                                to={`/faq`}
+                              <button
+                                type="button"
                                 onClick={(e) => {
                                   if (location.pathname === '/faq') {
                                     e.preventDefault();
@@ -219,7 +233,7 @@ export default function MainLayout() {
                                 >
                                   پرسش و پاسخ حقوقی
                                 </span>
-                              </Link>
+                              </button>
                             }
                           >
                             <div className="flex flex-col gap-2 text-sm">
@@ -243,8 +257,8 @@ export default function MainLayout() {
                                 : null}
                             </div>
                           </SimpleAccordion>
-                        )}
-                      </>
+                        ) : null}
+                      </div>
                     );
                   })
                 : null}
