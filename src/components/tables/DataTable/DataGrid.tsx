@@ -17,7 +17,7 @@ function DataGrid<T extends object>({
       {/* ================= Header ================= */}
       <div
         className={clsx(
-          'grid bg-global-8 py-1.5 px-4 text-xs font-bold text-text-secondary',
+          'grid bg-global-8 py-3 rounded-t-2xl px-4 text-xs font-bold text-text-secondary',
           headerClassName
         )}
         style={{
