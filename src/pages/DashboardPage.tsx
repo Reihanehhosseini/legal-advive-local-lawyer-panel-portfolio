@@ -7,6 +7,7 @@ import type { DataGridColumn } from '../components/tables/DataTable/DataTable.ty
 import ResponsiveDataGrid from '../components/tables/DataTable/ResponsiveDataTable';
 import { StatusBadge } from '../components/ui/badges/StatusBadge';
 import { ChevronLeft } from 'lucide-react';
+import { Trophy } from '../assets';
 
 // ======================================================================================================|
 interface DataType {
@@ -132,11 +133,12 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-12 gap-x-6">
-        <div className="col-span-12 lg:col-span-4 border border-global-3 rounded-2xl p-7">
+        <div className="col-span-12 lg:col-span-5 border border-global-3 rounded-2xl p-7">
           <p className="text-base mb-3">امتیاز شما در کلینیک حقوقی</p>
-          <p className=''>امتیاز فعلی شما برای ورود به رتبه‌بندی کافی نیست.</p>
+          <p className="">امتیاز فعلی شما برای ورود به رتبه‌بندی کافی نیست.</p>
+          <img src={Trophy} alt="عکس تروفی" />
         </div>
-        <div className="col-span-12 lg:col-span-8 border border-global-3 rounded-2xl p-7"></div>
+        <div className="col-span-12 lg:col-span-7 border border-global-3 rounded-2xl p-7"></div>
       </div>
     </div>
   );
