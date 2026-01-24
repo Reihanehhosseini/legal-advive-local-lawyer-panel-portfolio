@@ -1,8 +1,13 @@
 // ======================================================================================================|
 // ========================================>Types<=======================================================|
 
-import { HiOutlineCalendar } from 'react-icons/hi';
-import { Button, MotionSelect, ValueBadgeDisplay } from '../components';
+import { HiOutlineCalendar, HiUserCircle } from 'react-icons/hi';
+import {
+  Button,
+  MotionSelect,
+  StarRating,
+  ValueBadgeDisplay,
+} from '../components';
 import type { DataGridColumn } from '../components/tables/DataTable/DataTable.types';
 import ResponsiveDataGrid from '../components/tables/DataTable/ResponsiveDataTable';
 import { StatusBadge } from '../components/ui/badges/StatusBadge';
@@ -156,13 +161,26 @@ export default function DashboardPage() {
                 <span>4.9</span>
               </div>
             </div>
-
           </div>
-            {/* Comments */}
+          {/* Comments */}
           <div className="border border-global-3 px-4 py-3 rounded-2xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center"></div>
+            <div className="flex justify-between mb-1">
+              <div className="flex items-center gap-x-3">
+                <HiUserCircle size={48} />
+                <div>
+                  <p className="mb-1">ناشناس</p>
+                  <p className="text-xs font-light">
+                    فروردی 11و 1404 در 12:23 ب/ظ
+                  </p>
+                </div>
+              </div>
+              <StarRating value={4} />
             </div>
+            <p className="font-light text-text-secondary">
+              با سلام و احترام. بنده پارسال در تلگرام به دو نفر که هیچ خصومتی
+              نداشتیم، مرتکب یک اشتباه شدم. آن اشتباه این بود که در تلگرام به
+              ایشان توهین کرده و افترا زده و هم تهدید کردم.
+            </p>
           </div>
         </div>
       </div>
