@@ -31,3 +31,4 @@ export { StarIcon } from './StarIcon';
 export { InfoIcon } from './InfoIcon';
 export { DocumentIcon } from './DocumentIcon';
 export { CirclePlusIcon } from './CirclePlusIcon';
+export { TrophyIcon } from './TrophyIcon';
