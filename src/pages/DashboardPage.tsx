@@ -12,7 +12,12 @@ import type { DataGridColumn } from '../components/tables/DataTable/DataTable.ty
 import ResponsiveDataGrid from '../components/tables/DataTable/ResponsiveDataTable';
 import { StatusBadge } from '../components/ui/badges/StatusBadge';
 import { ChevronLeft } from 'lucide-react';
-import { StarIcon, TrophyIcon } from '../components/ui/icons';
+import {
+  EditPenIcon,
+  MailIcon,
+  StarIcon,
+  TrophyIcon,
+} from '../components/ui/icons';
 
 // ======================================================================================================|
 interface DataType {
@@ -136,8 +141,7 @@ export default function DashboardPage() {
           </button>
         </div>
       </div>
-
-      <div className="grid grid-cols-12 gap-x-6">
+      <div className="grid grid-cols-12 gap-x-6 mb-6">
         <div className="col-span-12 lg:col-span-5 border border-global-3 rounded-2xl p-7">
           <p className="text-base mb-3">امتیاز شما در کلینیک حقوقی</p>
           <p className="font-light mb-8">
@@ -182,6 +186,30 @@ export default function DashboardPage() {
               ایشان توهین کرده و افترا زده و هم تهدید کردم.
             </p>
           </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-x-5">
+        <div className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
+          <MailIcon className="mb-6" />
+          <p className="text-center text-base w-[90%] mb-7">
+            در حال حاضر هیچ درخواست پشتیبانی در انتظار بررسی برای شما ثبت نشده
+            است.
+          </p>
+          <button className="bg-white py-1.5 w-[90%] rounded-full text-black">
+            ثبت درخواست پشتیبانی
+          </button>
+        </div>
+        <div className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
+          <EditPenIcon className="mb-6" />
+          <p className="text-center text-base w-[90%] mb-7">
+            تاکنون هیچ مقاله‌ای توسط شما ثبت نشده است.
+          </p>
+          <button className="bg-white py-1.5 w-[90%] rounded-full text-black">
+            ارسال مقاله
+          </button>
+        </div>
+        <div className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
+          
         </div>
       </div>
     </div>
