@@ -4,3 +4,5 @@ export { default as Button } from './ui/buttons/Button';
 export { default as StarRating } from './global/StarRating';
 export { default as DashboardCard } from './cards/DashboardCard';
 export { default as CommentCard } from './cards/CommentCard';
+export { default as RadioGroup } from './ui/toggles/RadioGroup';
+export { default as ToggleSwitch } from './ui/toggles/ToggleSwitch';

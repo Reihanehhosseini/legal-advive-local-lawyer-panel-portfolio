@@ -3,6 +3,8 @@
 
 import {
   HiOutlineCalendar,
+  HiOutlineChatAlt2,
+  HiOutlineQuestionMarkCircle,
   HiQuestionMarkCircle,
   HiUserCircle,
 } from 'react-icons/hi';
@@ -23,6 +25,8 @@ import {
   StarIcon,
   TrophyIcon,
 } from '../components/ui/icons';
+import Toggle from '../components/ui/toggles/Toggle';
+import { useState } from 'react';
 
 // ======================================================================================================|
 interface DataType {
@@ -105,6 +109,11 @@ export default function DashboardPage() {
       render: (v) => new Date(v).toLocaleDateString('fa-IR'),
     },
   ];
+  // ======================================================================================================|
+  // ========================================>States<======================================================|
+  // ======================================================================================================|
+
+  const [active, setActive] = useState(false);
 
   // ======================================================================================================|
   // ========================================>JSX<=========================================================|
@@ -181,7 +190,7 @@ export default function DashboardPage() {
           />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-x-5">
+      <div className="grid grid-cols-3 gap-x-5 mb-6">
         <DashboardCard
           className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8"
           icon={<MailIcon className="mb-6" />}
@@ -211,6 +220,62 @@ export default function DashboardPage() {
             <HiQuestionMarkCircle className="text-primary" size={24} />
             راه‌های ارتقای جایگاه من چیست؟
           </button>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-x-2 gap-y-6">
+        <div className="col-span-4 sm:col-span-2 lg:col-span-1 border border-global-3 rounded-2xl py-2.5 px-3">
+          <div className="flex items-center justify-between gap-x-2 mb-5">
+            <div className="min-w-11 h-11 bg-global-21 rounded-2xl flex items-center justify-center">
+              <HiOutlineChatAlt2
+                className="m-auto text-accent-indigo"
+                size={20}
+              />
+            </div>
+            <p>مشاوره حقوقی آنلاین</p>
+            <span className="text-text-secondary bg-global-11 text-xs font-bold px-2 py-1 rounded-full">
+              غیرفعال
+            </span>
+          </div>
+
+          <div className="px-2 flex flex-col gap-y-3 border-b border-global-3 pb-3 mb-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-text-secondary">قیمت</span>
+              <p className="text-base text-black font-bold">
+                24,000{' '}
+                <span className="text-[10px] text-text-secondary">تومان</span>
+              </p>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-text-secondary">کارمزد</span>
+              <p className="text-base text-black font-bold">60%</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-y-3 mb-3">
+            <div className="flex items-center justify-between">
+              <p>مشاوره پیش از خرید</p>
+              <Toggle
+                checked={active}
+                onChange={(e) => setActive(e.target.checked)}
+              />
+            </div>
+            <div className="flex items-center justify-between">
+              <p>فعال کردن</p>
+              <Toggle
+                checked={active}
+                onChange={(e) => setActive(e.target.checked)}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-y-3">
+            <button className="bg-global-5 text-text-secondary rounded-full py-1.5 px-4 mx-auto">
+              مدیریت پیشنهادها
+            </button>
+            <button className="flex items-center text-accent-blue gap-x-0.5">
+              <HiOutlineQuestionMarkCircle size={20} />
+              <span className="text-xs">راهنما</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
