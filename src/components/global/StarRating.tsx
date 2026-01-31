@@ -17,7 +17,7 @@ export default function StarRating({
   const isReadOnly = typeof onChange !== 'function';
 
   return (
-    <div className="flex flex-row-reverse gap-1">
+    <div className="flex flex-row-reverse">
       {Array.from({ length: max }, (_, index) => {
         const starValue = index + 1;
         const isActive = starValue <= value;
@@ -30,13 +30,13 @@ export default function StarRating({
             onClick={() => onChange?.(starValue)}
             className={clsx(
               'transition-transform',
-              isReadOnly ? 'cursor-default' : 'cursor-pointer hover:scale-110'
+              isReadOnly ? 'cursor-default' : 'cursor-pointer hover:scale-110',
             )}
           >
             <StarIcon
               width={size}
               className={clsx(
-                isActive ? 'text-secondary' : 'text-text-secondary'
+                isActive ? 'text-secondary' : 'text-text-secondary',
               )}
             />
           </button>

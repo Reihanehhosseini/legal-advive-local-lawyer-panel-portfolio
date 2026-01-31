@@ -1,11 +1,16 @@
 // ======================================================================================================|
 // ========================================>Types<=======================================================|
 
-import { HiOutlineCalendar, HiUserCircle } from 'react-icons/hi';
+import {
+  HiOutlineCalendar,
+  HiQuestionMarkCircle,
+  HiUserCircle,
+} from 'react-icons/hi';
 import {
   Button,
+  CommentCard,
+  DashboardCard,
   MotionSelect,
-  StarRating,
   ValueBadgeDisplay,
 } from '../components';
 import type { DataGridColumn } from '../components/tables/DataTable/DataTable.types';
@@ -167,49 +172,45 @@ export default function DashboardPage() {
             </div>
           </div>
           {/* Comments */}
-          <div className="border border-global-3 px-4 py-3 rounded-2xl">
-            <div className="flex justify-between mb-1">
-              <div className="flex items-center gap-x-3">
-                <HiUserCircle size={48} />
-                <div>
-                  <p className="mb-1">ناشناس</p>
-                  <p className="text-xs font-light">
-                    فروردی 11و 1404 در 12:23 ب/ظ
-                  </p>
-                </div>
-              </div>
-              <StarRating value={4} />
-            </div>
-            <p className="font-light text-text-secondary">
-              با سلام و احترام. بنده پارسال در تلگرام به دو نفر که هیچ خصومتی
-              نداشتیم، مرتکب یک اشتباه شدم. آن اشتباه این بود که در تلگرام به
-              ایشان توهین کرده و افترا زده و هم تهدید کردم.
-            </p>
-          </div>
+          <CommentCard
+            commentText="با سلام و احترام. بنده پارسال در تلگرام به دو نفر که هیچ خصومتی نداشتیم،         مرتکب یک اشتباه شدم. آن اشتباه این بود که در تلگرام به ایشان توهین کرده و افترا زده و هم تهدید کردم."
+            userIcon={<HiUserCircle size={48} />}
+            userName="علی رضایی"
+            commentDate="فروردی 11و 1404 در 12:23 ب/ظ"
+            ratingValue={4}
+          />
         </div>
       </div>
       <div className="grid grid-cols-3 gap-x-5">
-        <div className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
-          <MailIcon className="mb-6" />
-          <p className="text-center text-base w-[90%] mb-7">
-            در حال حاضر هیچ درخواست پشتیبانی در انتظار بررسی برای شما ثبت نشده
-            است.
+        <DashboardCard
+          className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8"
+          icon={<MailIcon className="mb-6" />}
+          text="در حال حاضر هیچ درخواست پشتیبانی در انتظار بررسی برای شما ثبت نشده است."
+          buttonText="ثبت درخواست پشتیبانی"
+        />
+        <DashboardCard
+          className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8"
+          icon={<EditPenIcon className="mb-6" />}
+          text="در حال حاضر هیچ وظیفه‌ای برای شما ثبت نشده است."
+          buttonText="ارسال مقاله"
+        />
+        <div className="col-span-1 pb-16 relative text-center flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
+          <p className="mb-2 text-primary text-base font-bold">
+            وضعیت مالی شما در بنیاد وکلا
           </p>
-          <button className="bg-white py-1.5 w-[90%] rounded-full text-black">
-            ثبت درخواست پشتیبانی
-          </button>
-        </div>
-        <div className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
-          <EditPenIcon className="mb-6" />
-          <p className="text-center text-base w-[90%] mb-7">
-            تاکنون هیچ مقاله‌ای توسط شما ثبت نشده است.
+          <p className="text-start text-global-7 font-light mb-8">
+            جایگاه مالی شما در شبکه بنیاد وکلا بر اساس میزان درآمد ثبت‌شده شما
+            در ۱۴ روز گذشته و در مقایسه با بالاترین درآمد متخصصان این شبکه مشخص
+            می‌شود.
           </p>
-          <button className="bg-white py-1.5 w-[90%] rounded-full text-black">
-            ارسال مقاله
+          <div className="w-[80%] h-22.5 rounded-2xl bg-white flex flex-col justify-center items-center gap-y-1 mb-5">
+            <img src="/gifs/alert_gif.gif" alt="تصویر" className="w-11 h-11" />
+            <p className="text-red-600">شما درآمدی نداشته‌اید</p>
+          </div>
+          <button className="absolute left-1/2 -translate-x-1/2 bottom-6 w-[90%] bg-white py-1.5 rounded-full text-black flex items-center justify-center gap-x-2">
+            <HiQuestionMarkCircle className="text-primary" size={24} />
+            راه‌های ارتقای جایگاه من چیست؟
           </button>
-        </div>
-        <div className="col-span-1 flex flex-col items-center justify-center w-full text-text-secondary bg-global-12 border border-global-3 rounded-2xl px-6 py-8">
-          
         </div>
       </div>
     </div>
