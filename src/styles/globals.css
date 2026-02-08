@@ -1,5 +1,6 @@
-@import 'tailwindcss';
-@import '../assets/fonts/yekan-bakh-fanum/fontiran.css';
+@import "tailwindcss";
+@import "../assets/fonts/yekan-bakh-fanum/fontiran.css";
+/* @import '../../tailwind.config.js'; */
 
 @theme {
   --color-global-1: #0f0f0f;
@@ -35,9 +36,11 @@
   --color-accent-indigo: #6155f5;
   --color-accent-purple: #cb30e0;
   --color-accent-red: #ff2d55;
+
+  --breakpoint-mdl: 1142px;
 }
 body {
-  font-family: 'Yekan Bakh FaNum', Helvetica, sans-serif;
+  font-family: "Yekan Bakh FaNum", Helvetica, sans-serif;
   font-size: 14px;
   color: var(--color-global-7);
 }
