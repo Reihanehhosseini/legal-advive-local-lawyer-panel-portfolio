@@ -6,20 +6,23 @@ type SimpleAccordionProps = {
   children: React.ReactNode;
   defaultOpen?: boolean;
   className?: string;
+  nameTitle:string,
+  
 };
 
 const SimpleAccordion: React.FC<SimpleAccordionProps> = ({
   title,
   children,
   defaultOpen = false,
-  className = '',
+  className = "",
+  nameTitle,
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.startsWith('/faq')) {
+    if (location.pathname.startsWith(nameTitle)) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsOpen(true);
     } else {
@@ -40,7 +43,7 @@ const SimpleAccordion: React.FC<SimpleAccordionProps> = ({
       {/* Content */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-125 mt-2' : 'max-h-0'
+          isOpen ? "max-h-125 mt-2" : "max-h-0"
         }`}
       >
         {isOpen && <div className="pt-2">{children}</div>}
