@@ -40,7 +40,7 @@ export default function IdentityInformation() {
         {({ values, errors, handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
             <div className="w-full flex flex-col justify-center lg:flex-row ">
-              <div className="w-full h-full flex flex-col gap-2 mt-3 mb-7 lg:pr-7 pl-7 lg:w-[30%] lg:mt-0">
+              <div className="w-full h-full flex flex-col gap-2 mt-3 mb-7 lg:pr-7 lg:pl-7 lg:w-[30%] lg:mt-0">
                 <h1 className="text-sm">کارت و کد ملی</h1>
                 <p className="text-[#6D7278] text-xs">
                   این اطلاعات محرمانه بوده و صرفا برای تایید هویت شما استفاده
