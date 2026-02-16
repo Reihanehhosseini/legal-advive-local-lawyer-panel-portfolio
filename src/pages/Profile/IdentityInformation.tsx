@@ -1,7 +1,9 @@
-import { Formik, Form, Field, type FormikErrors, ErrorMessage } from "formik";
+import { Formik, Form, Field, type FormikErrors } from "formik";
 import { HiOutlinePaperClip } from "react-icons/hi";
 import { HiOutlineAcademicCap } from "react-icons/hi2";
 import { HiOutlineCheckCircle } from "react-icons/hi";
+import FormikInput from "../../components/inputs/FormikInput";
+import ButtonFormik from "../../components/inputs/ButtonFormik";
 
 interface FormValues {
   nationalCode: string;
@@ -48,25 +50,19 @@ export default function IdentityInformation() {
                 </p>
               </div>
               <div className="w-full h-full flex flex-col items-center justify-center pb-11 gap-6">
-                <div className="flex flex-col gap-1.5 w-full ">
-                  <span>کد ملی</span>
-                  <div className="bg-[#F9F8F5] flex gap-1 rounded-lg items-center w-full h-11 border border-[#D7DBE3] p-3 text-left">
-                    <Field
-                      type="text"
-                      name="nationalCode"
-                      className="w-full text-left outline-none"
-                    />
-                    {values.nationalCode && !errors.nationalCode && (
+                <FormikInput
+                  label="کد ملی"
+                  name="nationalCode"
+                  type="text"
+                  required
+                  textRight={false}
+                  warning={
+                    values.nationalCode &&
+                    !errors.nationalCode && (
                       <HiOutlineCheckCircle className="text-[#34C759]" />
-                    )}
-                  </div>
-
-                  <ErrorMessage
-                    name="nationalCode"
-                    component="span"
-                    className="text-red-700"
-                  />
-                </div>
+                    )
+                  }
+                />
                 <div className="flex flex-col gap-2 w-full">
                   <span>تصویر روی کارت ملی</span>
                   <div className="bg-[#F9F8F5] flex justify-between rounded-lg w-full h-11 border border-[#D7DBE3] p-3">
@@ -130,32 +126,28 @@ export default function IdentityInformation() {
                 </p>
               </div>
               <div className="w-full h-full flex flex-col items-center justify-center gap-6 pb-11">
-                <div className="flex flex-col gap-1.5 w-full">
-                  <span>نوع پروانه *</span>
-                  <Field
-                    as="select"
-                    name="AttorneysLicense"
-                    className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 text-[#6D7278]"
-                  >
-                    <option value="وکیل پایه یک کانون وکلای دادگستری">
-                      وکیل پایه یک کانون وکلای دادگستری
-                    </option>
-                    <option value="وکیل قوه قضاییه">وکیل قوه قضاییه</option>
-                  </Field>
-                </div>
-                <div className="flex flex-col gap-1.5 w-full">
-                  <span>شماره پروانه وکالت</span>
-                  <Field
-                    placeholder="0000"
-                    type="text"
-                    name="AttorneysLicenseNumber"
-                    className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 "
-                  />
+                <FormikInput
+                  label="نوع پروانه"
+                  name="AttorneysLicense"
+                  as="select"
+                  required
+                  textRight
+                  select={[
+                    { id: 1, title: "وکیل پایه یک کانون وکلای دادگستری" },
+                    { id: 2, title: "وکیل قوه قضاییه   " },
+                  ]}
+                />
+                <FormikInput
+                  label="شماره پروانه وکالت"
+                  name="AttorneysLicenseNumber"
+                  type="text"
+                  textRight={false}
+                >
                   <span className="text-[#6D7278] text-sm">
                     تا بیش از تایید مقدار جدید این فیلد ؛ مقدار قبلی آن به عموم
                     نمایش داده می شود.
                   </span>
-                </div>
+                </FormikInput>
                 <div className="flex flex-col gap-2 w-full">
                   <span>تصویر پروانه وکالت*</span>
                   <div className="bg-[#F9F8F5] flex justify-between rounded-lg w-full h-11 border border-[#D7DBE3] p-3">
@@ -164,7 +156,10 @@ export default function IdentityInformation() {
                       className="flex items-center justify-end gap-0.5 cursor-pointer"
                     >
                       <HiOutlinePaperClip className="text-[#2D91F4]" />
-                      <span className="text-[#2D91F4] text-xs sm:text-sm"> انتخاب فایل</span>
+                      <span className="text-[#2D91F4] text-xs sm:text-sm">
+                        {" "}
+                        انتخاب فایل
+                      </span>
                     </label>
                     <input
                       type="file"
@@ -174,28 +169,23 @@ export default function IdentityInformation() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-1.5 w-full">
-                  <span>استان حوزه قضایی *</span>
-                  <Field
-                    as="select"
-                    name="JurisdictionCity"
-                    className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 text-[#6D7278]"
-                  >
-                    <option value="تهران">تهران</option>
-                  </Field>
-                  <span className="text-[#6D7278] text-sm">
-                    تا بیش از تایید مقدار جدید این فیلد ؛ مقدار قبلی آن به عموم
-                    نمایش داده می شود.
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1.5 w-full">
-                  <span>آدرس صفحه ی اختصاصی در وبسایت کانون/مرکز وکلا</span>
-                  <Field
-                    type="text"
-                    name="AddressPage"
-                    className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 "
-                  />
-                </div>
+                <FormikInput
+                  label="استان حوزه قضایی"
+                  name="JurisdictionCity"
+                  as="select"
+                  textRight
+                  required
+                  select={[
+                    { id: 1, title: "تهران" },
+                    { id: 2, title: "اصفهان" },
+                  ]}
+                />
+                <FormikInput
+                  label="آدرس صفحه ی اختصاصی در وبسایت کانون/مرکز وکل"
+                  name="AddressPage"
+                  type="text"
+                  textRight={false}
+                />
               </div>
             </div>
             <hr className="border-[#D7DBE3]" />
@@ -222,20 +212,7 @@ export default function IdentityInformation() {
                   </label>
                   <input type="file" name="" id="degree" accept="" hidden />
                 </div>
-                <div className="w-full flex flex-col justify-between items-center gap-6 lg:flex-row">
-                  <button
-                    className="bg-[#9DC88D] text-white w-full rounded-[25px] h-10"
-                    type="button"
-                  >
-                    لغو
-                  </button>
-                  <button
-                    type="submit"
-                    className="bg-[#4D774E] text-white w-full rounded-[25px] h-10"
-                  >
-                    بروز رسانی
-                  </button>
-                </div>
+                <ButtonFormik />
               </div>
             </div>
           </Form>
