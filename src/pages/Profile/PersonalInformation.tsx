@@ -1,7 +1,9 @@
 import { IoCameraOutline } from "react-icons/io5";
 import { CgDanger } from "react-icons/cg";
 import img from "../../assets/images/dev/img.png";
-import { Formik, Form, Field, type FormikErrors, ErrorMessage } from "formik";
+import { Formik, Form, Field, type FormikErrors } from "formik";
+import FormikInput from "../../components/inputs/FormikInput";
+import ButtonFormik from "../../components/inputs/ButtonFormik";
 
 interface FormValues {
   name: string;
@@ -105,93 +107,64 @@ export default function PersonalInformation() {
               </div>
               <div className="w-full h-full flex flex-col items-center justify-center pb-11 gap-6">
                 <div className="w-full flex flex-col gap-7 justify-between lg:flex-row">
-                  <div className="flex flex-col gap-1 w-full">
-                    <span>نام *</span>
-                    <Field
-                      type="text"
-                      name="name"
-                      className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 "
-                    />
-                    <ErrorMessage
-                      name="name"
-                      component="span"
-                      className="text-red-700"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1 w-full">
-                    <span>نام خانوادگی *</span>
-                    <Field
-                      type="text"
-                      name="lastName"
-                      className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 "
-                    />
-                    <ErrorMessage
-                      name="lastName"
-                      component="span"
-                      className="text-red-700"
-                    />
-                  </div>
+                  <FormikInput
+                    label="نام"
+                    name="name"
+                    type="text"
+                    required
+                    textRight
+                  />
+                  <FormikInput
+                    label="نام خانوادگی"
+                    name="lastName"
+                    type="text"
+                    required
+                    textRight
+                  />
                 </div>
                 <div className="flex flex-col w-full gap-1">
-                  <div className="flex flex-col gap-1">
-                    <span>جنسیت</span>
-                    <Field
-                      as="select"
-                      name="gender"
-                      id=""
-                      className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 text-[#6D7278]"
-                    >
-                      <option selected disabled>
-                        جنسیت خود را وارد کنید
-                      </option>
-                      <option value="مرد">مرد</option>
-                      <option value="زن">زن</option>
-                    </Field>
-                  </div>
+                  <FormikInput
+                    label="جنسیت"
+                    name="gender"
+                    as="select"
+                    required
+                    textRight
+                    select={[
+                      { id: 2, title: "مرد" },
+                      { id: 1, title: "زن" },
+                    ]}
+                  />
                 </div>
-                <div className="flex flex-col w-full gap-1">
-                  <span>پست الکترونیکی</span>
-                  <Field
-                    type="email"
-                    name="email"
-                    className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3 focus:border-[#F1B24A] outline-none"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="span"
-                    className="text-red-700"
-                  />
+                <FormikInput
+                  label="پست الکترونیکی"
+                  name="email"
+                  type="email"
+                  textRight={false}
+                >
                   <p className="text-sm text-[#F1B24A] mt-2">
                     آدرس ایمیل شما در سایت نمایش داده نمی‌شود
                   </p>
-                </div>
-                <div className="flex flex-col w-full gap-1">
-                  <span>شماره تلفن همراه</span>
-                  <Field
-                    type="text"
-                    name="phoneNumber"
-                    className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3"
-                  />
-                  {values.phoneNumber && values.phoneNumber.length === 11 ? (
+                </FormikInput>
+                <FormikInput
+                  name="phoneNumber"
+                  label="شماره تلفن همراه"
+                  type="text"
+                  textRight={false}
+                >
+                  {values.phoneNumber && values.phoneNumber.length === 11 && (
                     <span className="text-[#34C759]">
                       این مورد در انتظار بررسی کارشناسان است و پس از تایید اعمال
                       خواهد شد.
                     </span>
-                  ) : (
-                    <ErrorMessage
-                      name="phoneNumber"
-                      component="span"
-                      className="text-red-700"
-                    />
                   )}
-                </div>
+                </FormikInput>
               </div>
             </div>
             <hr className="border-[#D7DBE3]" />
             <div className="w-full flex mt-8 flex-col lg:flex-row">
               <div className="w-full h-full flex-col items-center justify-center lg:p-7 lg:w-[30%]">
                 <ul className="list-disc list-inside flex flex-col gap-8 mb-5">
-                  <li className="text-[#6D7278] text-sm">
+                  <li className="text-[#6D7278] text-sm text-justify">
                     اعمال تغییرات هر یک از فیلدهای زیر منوط به تأیید کارشناسان
                     خواهد بود.
                   </li>
@@ -205,14 +178,12 @@ export default function PersonalInformation() {
               <div className="w-full h-full flex flex-col items-center justify-center gap-6">
                 <div className="w-full flex flex-col gap-4">
                   <div className="flex w-full items-center justify-between">
-                    <div className="flex flex-col gap-1 w-full">
-                      <span>آدرس پروفایل حقوقی *</span>
-                      <Field
-                        type="text"
-                        name="profileAddress"
-                        className="bg-[#F9F8F5] rounded-lg w-full h-11 border border-[#D7DBE3] p-3"
-                      />
-                    </div>
+                    <FormikInput
+                      label="آدرس پروفایل حقوقی"
+                      name="profileAddress"
+                      type="text"
+                      textRight={false}
+                    />
                     <div className="hidden lg:flex w-full justify-end items-center text-[20px] font-light ">
                       {`https://clinickhoghooghi/${values.profileAddress}`}
                     </div>
@@ -224,33 +195,19 @@ export default function PersonalInformation() {
                     خواهد شد.
                   </div>
                 </div>
-                <div className="w-full flex flex-col gap-2 mt-8">
-                  <span>بیوگرافی</span>
-                  <Field
-                    as="textarea"
-                    name="description"
-                    className="bg-[#F9F8F5] h-54.25 border border-[#D7DBE3] rounded-lg mt-1"
-                  />
+                <FormikInput
+                  label="بیوگرافی"
+                  name="description"
+                  as="textarea"
+                  textRight
+                >
                   <p className="text-sm">
                     بخش بیوگرافی صرفاً برای معرفی شخص شما در نظر گرفته شده است؛
                     لطفاً از درج اطلاعات تماس، نام مؤسسه و هرگونه دعوت به انجام
                     وکالت یا موارد مشابه خودداری فرمایید.
                   </p>
-                </div>
-                <div className="w-full flex flex-col justify-between items-center gap-6 lg:flex-row">
-                  <button
-                    className="bg-[#9DC88D] text-white w-full rounded-[25px] h-10"
-                    type="button"
-                  >
-                    لغو
-                  </button>
-                  <button
-                    type="submit"
-                    className="bg-[#4D774E] text-white w-full rounded-[25px] h-10"
-                  >
-                    بروز رسانی
-                  </button>
-                </div>
+                </FormikInput>
+                <ButtonFormik />
               </div>
             </div>
           </Form>
