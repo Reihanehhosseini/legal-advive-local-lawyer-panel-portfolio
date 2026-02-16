@@ -21,7 +21,6 @@ export default function EditWorkCalendarPage() {
             textRight
             placeholder="نام تقویم را وارد کنید"
           />
-
           <div>
             <p>خدمات مورد نظر را انتخاب کنید</p>
 

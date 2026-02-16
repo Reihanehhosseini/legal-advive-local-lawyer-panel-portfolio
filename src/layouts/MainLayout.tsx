@@ -18,6 +18,7 @@ import {
 import MobileNavigationLinks from '../components/layouts/mobile/MobileNavigationLinks';
 import isRouteActive from '../utils/isLinkActive';
 import SimpleAccordion from '../components/accordion/SimpleAccordion';
+import { ChevronDown } from 'lucide-react';
 
 export default function MainLayout() {
   // ===============================================================================================================|
@@ -99,19 +100,25 @@ export default function MainLayout() {
     },
     {
       id: 7,
-      isLink: true,
+      isLink: false,
       lable: 'ارزیابی های حقوقی',
       href: '/legal-assessments',
       icon: <CourtIcon />,
-      list: [],
+      list: [
+        { id: 1, label: 'مدیریت خدمت', href: '#' },
+        { id: 2, label: 'لیست درخواست های ارزیابی', href: '#' },
+      ],
     },
     {
       id: 8,
-      isLink: true,
+      isLink: false,
       lable: 'لیست درخواست های ارزیابی',
       href: '/legal-assessments',
       icon: <CourtIcon />,
-      list: [],
+      list: [
+        { id: 1, label: 'کیف پول', href: '#' },
+        { id: 2, label: 'درخواست تسویه موجودی', href: '#' },
+      ],
     },
     {
       id: 9,
@@ -152,7 +159,7 @@ export default function MainLayout() {
           ]}
         />
         <div className="flex gap-x-1 max-w-360 mx-auto min-h-screen">
-          <div className="mr-4 min-w-60 xl:min-w-70 h-fit rounded-2xl sticky top-8 z-66 border border-global-3 hidden lg:block">
+          <div className="mr-4 min-w-60 xl:min-w-75 h-fit rounded-2xl sticky top-8 z-66 border border-global-3 hidden lg:block">
             {/* user info box */}
             <div className="border-b border-global-3 p-4 flex gap-x-6 lg:gap-x-4">
               <div className="w-14 h-14 rounded-full overflow-hidden">
@@ -227,32 +234,40 @@ export default function MainLayout() {
                                     e.preventDefault();
                                   }
                                 }}
-                                className={`flex items-center gap-x-4 font-thin w-full py-1.5 px-2.5 rounded-2xl ${
+                                className={`flex items-center justify-between gap-x-4 font-thin w-full py-1.5 px-2.5 rounded-2xl ${
                                   isActive ? 'bg-global-5' : 'bg-white'
                                 }`}
                               >
-                                <div
-                                  className={`w-9 h-9 ${
-                                    isActive ? 'bg-white' : 'bg-global-5'
-                                  } rounded-full flex items-center justify-center text-white`}
-                                >
+                                <div className="flex items-center gap-x-4">
                                   <div
+                                    className={`w-9 h-9 ${
+                                      isActive ? 'bg-white' : 'bg-global-5'
+                                    } rounded-full flex items-center justify-center text-white`}
+                                  >
+                                    <div
+                                      className={`${
+                                        isActive
+                                          ? 'text-primary!'
+                                          : 'text-white'
+                                      }`}
+                                    >
+                                      {i.icon}
+                                    </div>
+                                  </div>
+                                  <span
                                     className={`${
-                                      isActive ? 'text-primary!' : 'text-white'
+                                      isActive
+                                        ? 'text-white font-bold'
+                                        : 'text-global-7'
                                     }`}
                                   >
-                                    {i.icon}
-                                  </div>
+                                    {i.lable}
+                                  </span>
                                 </div>
-                                <span
-                                  className={`${
-                                    isActive
-                                      ? 'text-white font-bold'
-                                      : 'text-global-7'
-                                  }`}
-                                >
-                                  {i.lable}
-                                </span>
+                                <ChevronDown
+                                  size={20}
+                                  className="text-global-7"
+                                />
                               </button>
                             }
                           >
