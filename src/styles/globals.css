@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "../assets/fonts/yekan-bakh-fanum/fontiran.css";
-@import "leaflet/dist/leaflet.css";
+@import 'tailwindcss';
+@import '../assets/fonts/yekan-bakh-fanum/fontiran.css';
+@import 'leaflet/dist/leaflet.css';
 @theme {
   --color-global-1: #0f0f0f;
   --color-global-2: #afafaf;
@@ -24,6 +24,10 @@
   --color-global-20: #2d91f4;
   --color-global-21: #d5d3f9;
   --color-global-22: #8c91a0;
+  --color-global-23: #1976d2;
+  --color-global-24: #eaf4ff;
+  --color-global-25: #d2fdf8;
+  --color-global-26: #ffefd5;
   --color-primary: #4d774e;
   --color-secondary: #f1b24a;
   --color-background: #ffffff;
@@ -39,10 +43,10 @@
   --color-accent-red: #ff2d55;
 
   --breakpoint-mdl: 1142px;
-  --breakpoint-vxs:380px;
+  --breakpoint-vxs: 380px;
 }
 body {
-  font-family: "Yekan Bakh FaNum", Helvetica, sans-serif;
+  font-family: 'Yekan Bakh FaNum', Helvetica, sans-serif;
   font-size: 14px;
   color: var(--color-global-7);
 }
@@ -50,4 +54,32 @@ body {
 a,
 button {
   cursor: pointer;
+}
+
+.dashed-box {
+  border-radius: 20px;
+
+  background-image:
+    /* بالا */
+    repeating-linear-gradient(to right, #94a3b8 0 10px, transparent 10px 20px),
+    /* پایین */
+    repeating-linear-gradient(to right, #94a3b8 0 10px, transparent 10px 20px),
+    /* چپ */
+    repeating-linear-gradient(to bottom, #94a3b8 0 10px, transparent 10px 20px),
+    /* راست */
+    repeating-linear-gradient(to bottom, #94a3b8 0 10px, transparent 10px 20px);
+
+  background-position:
+    top left,
+    /* بالا */ bottom left,
+    /* پایین */ top left,
+    /* چپ */ top right; /* راست */
+
+  background-size:
+    100% 2px,
+    /* بالا */ 100% 2px,
+    /* پایین */ 2px 100%,
+    /* چپ */ 2px 100%; /* راست */
+
+  background-repeat: no-repeat;
 }
