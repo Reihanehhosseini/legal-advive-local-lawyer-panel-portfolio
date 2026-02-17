@@ -105,19 +105,16 @@ export default function MainLayout() {
       href: '/legal-assessments',
       icon: <CourtIcon />,
       list: [
-        { id: 1, label: 'مدیریت خدمت', href: '#' },
-        { id: 2, label: 'لیست درخواست های ارزیابی', href: '#' },
-      ],
-    },
-    {
-      id: 8,
-      isLink: false,
-      lable: 'لیست درخواست های ارزیابی',
-      href: '/legal-assessments',
-      icon: <CourtIcon />,
-      list: [
-        { id: 1, label: 'کیف پول', href: '#' },
-        { id: 2, label: 'درخواست تسویه موجودی', href: '#' },
+        {
+          id: 1,
+          label: 'مدیریت خدمت',
+          href: '/legal-assessments/service-management',
+        },
+        {
+          id: 2,
+          label: 'لیست درخواست های ارزیابی',
+          href: '/legal-assessments/evaluation-requests',
+        },
       ],
     },
     {
@@ -126,7 +123,10 @@ export default function MainLayout() {
       lable: 'امور مالی',
       href: '/financal',
       icon: <WalletIcon />,
-      list: [],
+      list: [
+        { id: 1, label: 'کیف پول', href: '#' },
+        { id: 2, label: 'درخواست تسویه موجودی', href: '#' },
+      ],
     },
     {
       id: 10,

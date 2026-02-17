@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
+import EvaluationRequests from '../pages/legal-assessments/EvaluationRequests';
 
 const MainLayout = lazy(() => import('../layouts/MainLayout'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage'));
@@ -12,6 +13,9 @@ const RequestConsultationPage = lazy(
 const WorkCalendarPage = lazy(() => import('../pages/WorkCalendarPage'));
 
 const ProfilePage = lazy(() => import('../pages/ProfilePage'));
+const ServiceManagement = lazy(
+  () => import('../pages/legal-assessments/ServiceManagement'),
+);
 const PersonalInformation = lazy(
   () => import('../pages/Profile/PersonalInformation'),
 );
@@ -40,6 +44,14 @@ const routes: RouteObject[] = [
         element: <WorkCalendarPage />,
       },
       { path: '/work-calendar/edit', element: <EditWorkCalendarPage /> },
+      {
+        path: '/legal-assessments/service-management',
+        element: <ServiceManagement />,
+      },
+      {
+        path: '/legal-assessments/evaluation-requests',
+        element: <EvaluationRequests />,
+      },
       {
         path: 'faq',
         element: <FAQPage />,

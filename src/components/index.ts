@@ -6,3 +6,4 @@ export { default as DashboardCard } from './cards/DashboardCard';
 export { default as CommentCard } from './cards/CommentCard';
 export { default as RadioGroup } from './ui/toggles/RadioGroup';
 export { default as ToggleSwitch } from './ui/toggles/ToggleSwitch';
+export { default as Toggle } from './ui/toggles/Toggle';
