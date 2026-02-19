@@ -33,6 +33,9 @@ const WorkHistory = lazy(() => import('../pages/Profile/WorkHistory'));
 const EditWorkCalendarPage = lazy(
   () => import('../pages/work-calendar/EditWorkCalendarPage'),
 );
+const WalletPage = lazy(() => import('../pages/finance/WalletPage'));
+
+const FinanceLayout = lazy(() => import('../pages/FinanceLayout'));
 
 const routes: RouteObject[] = [
   {
@@ -51,6 +54,10 @@ const routes: RouteObject[] = [
       {
         path: '/legal-assessments/evaluation-requests',
         element: <EvaluationRequests />,
+      },
+      {
+        element: <FinanceLayout />,
+        children: [{ path: '/financal/wallet', element: <WalletPage /> }],
       },
       {
         path: 'faq',

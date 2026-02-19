@@ -119,12 +119,12 @@ export default function MainLayout() {
     },
     {
       id: 9,
-      isLink: true,
+      isLink: false,
       lable: 'امور مالی',
       href: '/financal',
       icon: <WalletIcon />,
       list: [
-        { id: 1, label: 'کیف پول', href: '#' },
+        { id: 1, label: 'کیف پول', href: '/financal/wallet' },
         { id: 2, label: 'درخواست تسویه موجودی', href: '#' },
       ],
     },
