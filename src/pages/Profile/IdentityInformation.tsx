@@ -1,34 +1,27 @@
 import { Formik, Form, Field, type FormikErrors } from "formik";
-import { HiOutlinePaperClip } from "react-icons/hi";
-import { HiOutlineAcademicCap } from "react-icons/hi2";
-import { HiOutlineCheckCircle } from "react-icons/hi";
 import FormikInput from "../../components/inputs/FormikInput";
 import ButtonFormik from "../../components/inputs/ButtonFormik";
+import { type nationalCodeValues } from "../../types/formValues/FormValues";
+import {HiOutlinePaperClip, HiOutlineAcademicCap, HiOutlineCheckCircle} from "../../assets/icons/icons"
 
-interface FormValues {
-  nationalCode: string;
-  AttorneysLicense: string;
-  AttorneysLicenseNumber: string;
-  JurisdictionCity: string;
-  AddressPage: string;
-}
 
+const initialValues: nationalCodeValues = {
+  nationalCode: "",
+  AttorneysLicense: "",
+  AttorneysLicenseNumber: "",
+  JurisdictionCity: "",
+  AddressPage: "",
+};
 export default function IdentityInformation() {
   return (
     <div className="w-full">
-      <Formik
-        onSubmit={(values: FormValues) => {
+      <Formik<nationalCodeValues>
+        onSubmit={(values) => {
           console.log(values);
         }}
-        initialValues={{
-          nationalCode: "",
-          AttorneysLicense: "",
-          AttorneysLicenseNumber: "",
-          JurisdictionCity: "",
-          AddressPage: "",
-        }}
-        validate={(values: FormValues) => {
-          const errors: FormikErrors<FormValues> = {};
+        initialValues={initialValues}
+        validate={(values) => {
+          const errors: FormikErrors<nationalCodeValues> = {};
 
           if (!values.nationalCode) {
             errors.nationalCode = "کد ملی الزامی است";
@@ -157,7 +150,6 @@ export default function IdentityInformation() {
                     >
                       <HiOutlinePaperClip className="text-[#2D91F4]" />
                       <span className="text-[#2D91F4] text-xs sm:text-sm">
-                        {" "}
                         انتخاب فایل
                       </span>
                     </label>

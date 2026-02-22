@@ -1,39 +1,30 @@
-import { IoCameraOutline } from "react-icons/io5";
-import { CgDanger } from "react-icons/cg";
 import img from "../../assets/images/dev/img.png";
 import { Formik, Form, Field, type FormikErrors } from "formik";
 import FormikInput from "../../components/inputs/FormikInput";
 import ButtonFormik from "../../components/inputs/ButtonFormik";
+import { type personalValues } from "../../types/formValues/FormValues";
+import {IoCameraOutline , CgDanger} from "../../assets/icons/icons"
 
-interface FormValues {
-  name: string;
-  lastName: string;
-  gender: string;
-  email: string;
-  phoneNumber: string;
-  profileAddress: string;
-  description: string;
-  profileImage: any;
-}
+const initialValues: personalValues = {
+  name: "",
+  lastName: "",
+  gender: "",
+  email: "",
+  phoneNumber: "",
+  profileAddress: "",
+  description: "",
+  profileImage: null,
+};
 export default function PersonalInformation() {
   return (
     <div className="w-full">
-      <Formik
-        onSubmit={(values: FormValues) => {
+      <Formik<personalValues>
+        onSubmit={(values) => {
           console.log(values);
         }}
-        initialValues={{
-          name: "",
-          lastName: "",
-          gender: "",
-          email: "",
-          phoneNumber: "",
-          profileAddress: "",
-          description: "",
-          profileImage: null,
-        }}
-        validate={(values: FormValues) => {
-          const errors: FormikErrors<FormValues> = {};
+        initialValues={initialValues}
+        validate={(values) => {
+          const errors: FormikErrors<personalValues> = {};
 
           if (!values.name) {
             errors.name = "نام الزامی است";

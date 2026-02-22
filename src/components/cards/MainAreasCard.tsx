@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import AbilityChip from "./AbilityChip";
-import { HiOutlineChevronUp } from "react-icons/hi";
-import { HiOutlineChevronDown } from "react-icons/hi";
+import {HiOutlineChevronUp , HiOutlineChevronDown} from "../../assets/icons/icons"
 import { AbilitiesOfLawyer } from "../../utils/Abilities";
 
 interface MainAreasCardProps {

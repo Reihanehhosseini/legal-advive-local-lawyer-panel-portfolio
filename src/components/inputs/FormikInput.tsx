@@ -49,7 +49,7 @@ export default function FormikInput({
           type={type}
           name={name}
           className={clsx(
-            "w-full outline-none pb-5 pt-3",
+            "w-full outline-none font-light",
             as === "textarea" && "h-54.25 resize-none",
           )}
           placeholder={placeholder}

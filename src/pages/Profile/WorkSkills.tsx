@@ -1,20 +1,20 @@
 import { Form, Formik, FieldArray } from "formik";
-import { HiOutlineShieldExclamation } from "react-icons/hi";
-import { CgDanger } from "react-icons/cg";
 import MainAreasCard from "../../components/cards/MainAreasCard";
 import { subCategory, mainCategories } from "../../utils/Abilities";
 import { useState } from "react";
 import ButtonFormik from "../../components/inputs/ButtonFormik";
 import FormikInput from "../../components/inputs/FormikInput";
-import { HiOutlinePlusSm } from "react-icons/hi";
-import { HiOutlineMinusSmall } from "react-icons/hi2";
+import { type LanguagesValues } from "../../types/formValues/FormValues";
+import {
+  HiOutlineShieldExclamation,
+  HiOutlinePlusSm,
+  CgDanger,
+  HiOutlineMinusSmall,
+} from "../../assets/icons/icons";
 
-interface FormValues {
-  languages: {
-    language: string;
-    level: string;
-  }[];
-}
+const initialValues: LanguagesValues = {
+  languages: [{ language: "", level: "" }],
+};
 export default function WorkSkills() {
   const [mainCategoriesList, setMainCategoriesList] = useState(mainCategories);
   const [subCategoryList, setSubCategoryList] = useState(subCategory);
@@ -27,13 +27,11 @@ export default function WorkSkills() {
 
   return (
     <div className="w-full">
-      <Formik
-        onSubmit={(values: FormValues) => {
+      <Formik<LanguagesValues>
+        onSubmit={(values) => {
           console.log(values);
         }}
-        initialValues={{
-          languages: [{ language: "", level: "" }],
-        }}
+        initialValues={initialValues}
       >
         {({ values, handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
@@ -103,7 +101,7 @@ export default function WorkSkills() {
                 </div>
                 <div className="w-full flex justify-end">
                   <div className="w-full lg:w-[70%]">
-                    <ButtonFormik active={!check} />
+                    <ButtonFormik  active={!check} />
                   </div>
                 </div>
               </div>
@@ -113,7 +111,10 @@ export default function WorkSkills() {
                   {({ push, remove }) => (
                     <>
                       {values.languages.map((item, index) => (
-                        <div key={index} className="flex gap-8 justify-between ">
+                        <div
+                          key={index}
+                          className="flex gap-8 justify-between "
+                        >
                           <FormikInput
                             label="زبان"
                             name={`languages.${index}.language`}
@@ -138,7 +139,7 @@ export default function WorkSkills() {
                             ]}
                           />
                           <div className="flex items-end ">
-                            <button className="w-11.5 h-11.5 flex items-center justify-center">
+                            <button type="button" className="w-11.5 h-11.5 flex items-center justify-center">
                               <HiOutlineMinusSmall
                                 className="bg-[#9DC88D] w-5 h-5  rounded-2xl flex items-center justify-center"
                                 onClick={() => remove(index)}
@@ -148,7 +149,7 @@ export default function WorkSkills() {
                         </div>
                       ))}
                       <div className="flex items-center justify-start">
-                        <button
+                        <button type="button"
                           onClick={() => push({ language: "", level: "" })}
                           className="bg-[#9DC88D] w-11.5 h-11.5 rounded-2xl flex items-center justify-center"
                         >

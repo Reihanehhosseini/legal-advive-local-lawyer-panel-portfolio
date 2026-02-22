@@ -1,10 +1,9 @@
 import { Form, Formik, type FormikErrors } from "formik";
 import FormikInput from "../../components/inputs/FormikInput";
-import { CgDanger } from "react-icons/cg";
 import { countries } from "../../utils/mockLocation";
-import { IoSearchSharp } from "react-icons/io5";
 import Map from "../../components/map/Map";
 import ButtonFormik from "../../components/inputs/ButtonFormik";
+import {CgDanger , IoSearchSharp} from "../../assets/icons/icons"
 
 interface FormValues {
   country: string;
