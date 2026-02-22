@@ -1,11 +1,13 @@
 interface ButtonFormikProps {
   active?: boolean;
-  cancelButton?:()=>void
+  cancelButton?:()=>void;
+
 }
 
 const ButtonFormik: React.FC<ButtonFormikProps> = ({
   active,
   cancelButton,
+  
 }) => {
   return (
     <div className="w-full flex flex-col justify-between items-center gap-6 lg:flex-row">

@@ -1,40 +1,26 @@
-import clsx from "clsx";
-import { useEffect, useState } from "react";
 
 interface AbilityChipProps {
   label: string;
   checked: boolean;
-  addAbility:(label:string)=>void;
+  onClick: () => void;
 }
 
 const AbilityChip: React.FC<AbilityChipProps> = ({
   label,
   checked,
-  addAbility,
+  onClick,
 }) => {
-  const [selected, setSelected] = useState(false);
-
-  useEffect(() => {
-    if (!checked) {
-      setSelected(false);
-    }
-  }, [checked]);
- 
   return (
     <button
-      disabled={!checked}
-      onClick={() => {
-        setSelected(!selected);
-        addAbility(label);
-      }}
-      className={clsx(
-        "px-3 py-1 rounded-full border border-[#6D7278] text-[#6D7278] text-xs",
-        selected ? "bg-[#B5E5A3] border-[#4D774E]" : "bg-inherit",
-        !checked && "cursor-none",
-      )}
+      type="button"
+      onClick={onClick}
+      className={`px-3 text-xs py-1 text-[#6D7278] border rounded-full transition
+        ${checked ? "bg-[#9DC88D]" : "bg-inherit"}
+      `}
     >
       {label}
     </button>
   );
 };
+
 export default AbilityChip;
