@@ -17,7 +17,7 @@ export default function LanguageskillAbility() {
     >
       {({ values, handleSubmit }) => (
         <Form onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-5 lg:pr-7 lg:pl-7 ">
+          <div className="flex flex-col gap-5">
             <span>زبان های خارجی</span>
             <FieldArray name="languages">
               {({ push, remove }) => (

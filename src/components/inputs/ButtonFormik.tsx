@@ -1,8 +1,4 @@
-interface ButtonFormikProps {
-  active?: boolean;
-  cancelButton?:()=>void;
-
-}
+import {type ButtonFormikProps } from "../../types/componentProps/ComponentProps";
 
 const ButtonFormik: React.FC<ButtonFormikProps> = ({
   active,

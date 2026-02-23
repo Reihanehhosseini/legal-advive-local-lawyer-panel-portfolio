@@ -7,7 +7,7 @@ export interface EducationValue {
   isStudying: boolean;
   isLastDegree: boolean;
   isPublic: boolean;
-  profileImage: null;
+  profileImage: null | File;
 }
 
 export interface nationalCodeValues {
@@ -47,11 +47,12 @@ export interface personalValues {
   description: string;
   profileImage: any;
 }
-export interface MainAreasCardProps {
-  id: number;
-  title: string;
-  abilities: string[];
-  main: string;
-  topAccardeon: string;
-  bottomAccardeon: string;
+export interface workPlaceValue {
+  country: string;
+  provincess: string;
+  city: string;
+  district: string;
+  workPlaceLocation: string;
+  postalCode: string;
+  location: string;
 }

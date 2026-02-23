@@ -1,5 +1,5 @@
 import { HiOutlineShieldExclamation } from "../../assets/icons/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EducationS1 from "../../components/education/EducationS1";
 import EducationS2 from "../../components/education/EducationS2";
 import { type EducationValue } from "../../types/formValues/FormValues";
@@ -12,14 +12,17 @@ export default function EducationalBackground() {
     setStep("step_2");
   };
 
-  const cancelButton = ()=>{
-    setStep("step_1")
-  }
+  const cancelButton = () => {
+    setStep("step_1");
+  };
 
   const changeStep = (value: EducationValue) => {
     setStep("step_1");
-    console.log(value);
     setAllEducation((prev) => [...prev, value]);
+  };
+
+  const deleteItem = (index:number) => {
+    setAllEducation((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -46,7 +49,13 @@ export default function EducationalBackground() {
             </p>
           </span>
         </div>
-        {step === "step_1" && <EducationS1 addEducation={addEducation} />}
+        {step === "step_1" && (
+          <EducationS1
+            addEducation={addEducation}
+            allEducations={allEducation}
+            deleteItem={deleteItem}
+          />
+        )}
         {step === "step_2" && (
           <EducationS2 changeStep={changeStep} cancelButton={cancelButton} />
         )}

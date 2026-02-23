@@ -4,19 +4,8 @@ import {
   HiOutlineChevronDown,
 } from "../../assets/icons/icons";
 import { AbilitiesOfLawyer } from "../../utils/Abilities";
+import {type MainAreasCardProps } from "../../types/componentProps/ComponentProps";
 
-interface MainAreasCardProps {
-  id: number;
-  title: string;
-  main: string;
-  abilities: string[];
-  topAccardeon: string;
-  bottomAccardeon: string;
-  checked: boolean;
-  selectedAbility: string[];
-  onToggle: (checked: boolean) => void;
-  onToggleAbility: (ability: string) => void;
-}
 
 const MainAreasCard: React.FC<MainAreasCardProps> = ({
   title,

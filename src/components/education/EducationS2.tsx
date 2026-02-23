@@ -1,4 +1,4 @@
-import { Formik, Form } from "formik";
+import { Formik, Form, type FormikErrors } from "formik";
 import { type EducationValue } from "../../types/formValues/FormValues";
 import FormikInput from "../inputs/FormikInput";
 import { HiOutlinePaperClip } from "../../assets/icons/icons";
@@ -29,6 +29,28 @@ export default function EducationS2({ changeStep, cancelButton }: EducationS2Pro
         onSubmit={(values: EducationValue) => {
           changeStep(values);
         }}
+        validate={(values: EducationValue) => {
+          const errors: FormikErrors<EducationValue> = {};
+          if(!values.University){
+            errors.University = "نام دانشگاه الزامی است"
+          }
+
+          if(!values.Educationalevel){
+            errors.Educationalevel= "فیلد مقطع تحصیلی الزامی است"
+          }
+
+          if(!values.EducationField){
+            errors.EducationField = "فیلد رشته تحصیلی الزامی است"
+          }
+          if(!values.AcademicYear){
+            errors.AcademicYear = "فیلد سال تحصیلی الزامی است"
+          }
+          if(!values.LastAcademicYear){
+            errors.LastAcademicYear = "فیلد سال تحصیلی الزامی است"
+          }
+
+          return errors
+        }}
       >
         {({ values, setFieldValue, handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
@@ -51,11 +73,10 @@ export default function EducationS2({ changeStep, cancelButton }: EducationS2Pro
                   required
                   textRight
                   select={[
-                    { id: 1, title: "سیکل" },
-                    { id: 2, title: "دیپلم" },
-                    { id: 3, title: "فوق دیپلم" },
-                    { id: 4, title: "لیسانس" },
-                    { id: 5, title: "فوق لیسانس" },
+                    { id: 1, title: "مقطع تحصیلی را انتخاب کنید" },
+                    { id: 2, title: "لیسانس" },
+                    { id: 3, title: "فوق لیسانس" },
+                    { id: 4, title: "دکتری" },
                   ]}
                   placeholder="مقطع تحصیلی خود را انتخاب کنید"
                 />
@@ -66,9 +87,10 @@ export default function EducationS2({ changeStep, cancelButton }: EducationS2Pro
                   required
                   textRight
                   select={[
-                    { id: 1, title: "حقوق جزا" },
-                    { id: 2, title: "حقوق مدنی" },
-                    { id: 3, title: "حقوق بین الملل" },
+                    { id: 1, title: " رشته تحصیلی را انتخاب کنید" },
+                    { id: 2, title: "حقوق جزا" },
+                    { id: 3, title: "حقوق مدنی" },
+                    { id: 4, title: "حقوق بین الملل" },
                   ]}
                 />
               </div>
