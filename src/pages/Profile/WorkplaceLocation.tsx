@@ -1,38 +1,31 @@
 import { Form, Formik, type FormikErrors } from "formik";
 import FormikInput from "../../components/inputs/FormikInput";
-import { CgDanger } from "react-icons/cg";
 import { countries } from "../../utils/mockLocation";
-import { IoSearchSharp } from "react-icons/io5";
 import Map from "../../components/map/Map";
 import ButtonFormik from "../../components/inputs/ButtonFormik";
+import { CgDanger, IoSearchSharp } from "../../assets/icons/icons";
+import { type workPlaceValue } from "../../types/formValues/FormValues";
 
-interface FormValues {
-  country: string;
-  provincess: string;
-  city: string;
-  district: string;
-  workPlaceLocation: string;
-  postalCode: string;
-  location: string;
-}
+
+const initialValues: workPlaceValue = {
+  country: "",
+  provincess: "",
+  city: "",
+  district: "",
+  workPlaceLocation: "",
+  postalCode: "",
+  location: "",
+};
 export default function WorkplaceLocation() {
   return (
     <div className="w-full">
-      <Formik
-        onSubmit={(values: FormValues) => {
+      <Formik<workPlaceValue>
+        onSubmit={(values: workPlaceValue) => {
           console.log(values);
         }}
-        initialValues={{
-          country: "",
-          provincess: "",
-          city: "",
-          district: "",
-          workPlaceLocation: "",
-          postalCode: "",
-          location: "",
-        }}
-        validate={(values: FormValues) => {
-          const errors: FormikErrors<FormValues> = {};
+        initialValues={initialValues}
+        validate={(values) => {
+          const errors: FormikErrors<workPlaceValue> = {};
 
           return errors;
         }}
