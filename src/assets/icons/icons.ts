@@ -16,7 +16,7 @@ import {
   HiOutlineAcademicCap,
   HiOutlinePencilSquare,
 } from "react-icons/hi2";
-
+import { MdOutlineBusinessCenter } from "react-icons/md";
 
 export {
   HiOutlineShieldExclamation,
@@ -31,6 +31,7 @@ export {
   HiOutlineChevronUp,
   HiOutlineChevronDown,
   HiOutlineCheck,
-HiOutlineTrash,
-HiOutlinePencilSquare,
+  HiOutlineTrash,
+  HiOutlinePencilSquare,
+  MdOutlineBusinessCenter,
 };

@@ -8,6 +8,11 @@ export interface EducationValue {
   isLastDegree: boolean;
   isPublic: boolean;
   profileImage: null | File;
+  deleteItem: () => void;
+  title: string;
+  secondRow: string;
+  thirdRow: string;
+  forthRow: string;
 }
 
 export interface nationalCodeValues {
@@ -55,4 +60,17 @@ export interface workPlaceValue {
   workPlaceLocation: string;
   postalCode: string;
   location: string;
+}
+
+export interface workHistoryValue {
+  institution: string;
+  jobPosition: string;
+  jobYear: string;
+  lastJobYear: string;
+  isbusy: boolean;
+  isPublic: boolean;
+  title: string;
+  secondRow: string;
+  thirdRow: string;
+  forthRow: string;
 }

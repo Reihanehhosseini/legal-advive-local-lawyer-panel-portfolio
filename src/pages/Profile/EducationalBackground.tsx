@@ -1,5 +1,5 @@
 import { HiOutlineShieldExclamation } from "../../assets/icons/icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EducationS1 from "../../components/education/EducationS1";
 import EducationS2 from "../../components/education/EducationS2";
 import { type EducationValue } from "../../types/formValues/FormValues";
@@ -21,7 +21,7 @@ export default function EducationalBackground() {
     setAllEducation((prev) => [...prev, value]);
   };
 
-  const deleteItem = (index:number) => {
+  const deleteItem = (index: number) => {
     setAllEducation((prev) => prev.filter((_, i) => i !== index));
   };
 
