@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import EvaluationRequests from '../pages/legal-assessments/EvaluationRequests';
-
+const Comments = lazy(() => import("../pages/reviews/Reviews"));
 const MainLayout = lazy(() => import('../layouts/MainLayout'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage'));
 const FAQPage = lazy(() => import('../pages/FAQPage'));
@@ -43,55 +43,51 @@ const routes: RouteObject[] = [
   {
     element: <MainLayout />,
     children: [
-      { path: '/', element: <DashboardPage /> },
+      { path: "/", element: <DashboardPage /> },
       {
-        path: '/work-calendar',
+        path: "/work-calendar",
         element: <WorkCalendarPage />,
       },
-      { path: '/work-calendar/edit', element: <EditWorkCalendarPage /> },
+      { path: "/work-calendar/edit", element: <EditWorkCalendarPage /> },
       {
-        path: '/legal-assessments/service-management',
+        path: "/legal-assessments/service-management",
         element: <ServiceManagement />,
       },
       {
-        path: '/legal-assessments/evaluation-requests',
+        path: "/legal-assessments/evaluation-requests",
         element: <EvaluationRequests />,
       },
       {
         element: <FinanceLayout />,
-        children: [{ path: '/financal/wallet', element: <WalletPage /> }],
+        children: [{ path: "/financal/wallet", element: <WalletPage /> }],
       },
       {
-        path: 'faq',
+        path: "faq",
         element: <FAQPage />,
         children: [
-          { path: 'questions', element: <QuestionPage /> },
-          { path: 'answers', element: <AnswersPage /> },
+          { path: "questions", element: <QuestionPage /> },
+          { path: "answers", element: <AnswersPage /> },
           {
-            path: 'request-consultation',
+            path: "request-consultation",
             element: <RequestConsultationPage />,
           },
         ],
       },
       {
-        path: 'profile',
+        path: "profile",
         element: <ProfilePage />,
         children: [
-          { path: 'personal-information', element: <PersonalInformation /> },
-          { path: 'personal-Identity', element: <IdentityInformation /> },
-          { path: 'WorkPlace-Location', element: <WorkPlaceLocation /> },
-          { path: 'Work-Skills', element: <WorkSkills /> },
+          { path: "personal-information", element: <PersonalInformation /> },
+          { path: "personal-Identity", element: <IdentityInformation /> },
+          { path: "WorkPlace-Location", element: <WorkPlaceLocation /> },
+          { path: "Work-Skills", element: <WorkSkills /> },
           {
-            path: 'Educational-Background',
+            path: "Educational-Background",
             element: <EducationalBackground />,
           },
-          { path: 'Work-History', element: <WorkHistory /> },
+          { path: "Work-History", element: <WorkHistory /> },
         ],
       },
-      {
-        path: 'orders',
-        element: <OrdersPage />,
-      }
     ],
   },
 ];
