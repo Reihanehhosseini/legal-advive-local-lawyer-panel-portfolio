@@ -37,6 +37,8 @@ const WalletPage = lazy(() => import('../pages/finance/WalletPage'));
 
 const FinanceLayout = lazy(() => import('../pages/FinanceLayout'));
 
+const OrdersPage = lazy(()=>import('../pages/orders/OrdersPage'))
+
 const routes: RouteObject[] = [
   {
     element: <MainLayout />,
@@ -86,6 +88,10 @@ const routes: RouteObject[] = [
           { path: 'Work-History', element: <WorkHistory /> },
         ],
       },
+      {
+        path: 'orders',
+        element: <OrdersPage />,
+      }
     ],
   },
 ];
