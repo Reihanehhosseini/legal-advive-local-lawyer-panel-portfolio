@@ -15,14 +15,24 @@ const EducationS1: React.FC<EducationS1Props> = ({
 }) => {
   return (
     <div className="w-full lg:px-10 flex flex-col flex-wrap items-center gap-7 lg:flex-row">
-      {allEducations?.map((item, index) => (
+      {allEducations?.map((education, index) => (
         <ProfileCard
-          {...item}
+          {...education}
           deleteItem={() => deleteItem(index)}
-          title="دانشگاه"
-          secondRow="مقطع تحصیلی"
-          thirdRow="رشته تحصیلی"
-          forthRow="سال تحصیلی"
+          rows={[
+            { label: " دانشگاه", value: education.University },
+            { label: "مقطع تحصیلی", value: education.Educationalevel },
+            { label: "رشته تحصیلی", value: education.EducationField },
+            {
+              label: "شروع سال تحصیلی",
+              value: education.AcademicYear,
+            },
+            {
+              label: " پایان سال تحصیلی ",
+              value: education.AcademicYear,
+            },
+          ]}
+          isPublic={education.isPublic}
         />
       ))}
       <button

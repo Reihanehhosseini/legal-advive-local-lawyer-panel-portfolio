@@ -5,12 +5,14 @@ import ButtonFormik from "../inputs/ButtonFormik";
 import type React from "react";
 
 const initialValues: workHistoryValue = {
+  job:"",
   institution: "",
   jobPosition: "",
   jobYear: "",
   lastJobYear: "",
   isbusy: false,
   isPublic: false,
+
 };
 
 interface WorkHistoryS2Props {
