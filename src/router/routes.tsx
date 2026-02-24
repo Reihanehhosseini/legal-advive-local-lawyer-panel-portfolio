@@ -1,43 +1,43 @@
-import { lazy } from 'react';
-import type { RouteObject } from 'react-router-dom';
-import EvaluationRequests from '../pages/legal-assessments/EvaluationRequests';
-const Comments = lazy(() => import("../pages/reviews/Reviews"));
-const MainLayout = lazy(() => import('../layouts/MainLayout'));
-const DashboardPage = lazy(() => import('../pages/DashboardPage'));
-const FAQPage = lazy(() => import('../pages/FAQPage'));
-const AnswersPage = lazy(() => import('../pages/faq/AnswersPage'));
-const QuestionPage = lazy(() => import('../pages/faq/QuestionPage'));
+import { lazy } from "react";
+import type { RouteObject } from "react-router-dom";
+import EvaluationRequests from "../pages/legal-assessments/EvaluationRequests";
+const Reviews = lazy(() => import("../pages/reviews/Reviews"));
+const MainLayout = lazy(() => import("../layouts/MainLayout"));
+const DashboardPage = lazy(() => import("../pages/DashboardPage"));
+const FAQPage = lazy(() => import("../pages/FAQPage"));
+const AnswersPage = lazy(() => import("../pages/faq/AnswersPage"));
+const QuestionPage = lazy(() => import("../pages/faq/QuestionPage"));
 const RequestConsultationPage = lazy(
-  () => import('../pages/faq/RequestConsultationPage'),
+  () => import("../pages/faq/RequestConsultationPage"),
 );
-const WorkCalendarPage = lazy(() => import('../pages/WorkCalendarPage'));
+const WorkCalendarPage = lazy(() => import("../pages/WorkCalendarPage"));
 
-const ProfilePage = lazy(() => import('../pages/ProfilePage'));
+const ProfilePage = lazy(() => import("../pages/ProfilePage"));
 const ServiceManagement = lazy(
-  () => import('../pages/legal-assessments/ServiceManagement'),
+  () => import("../pages/legal-assessments/ServiceManagement"),
 );
 const PersonalInformation = lazy(
-  () => import('../pages/Profile/PersonalInformation'),
+  () => import("../pages/Profile/PersonalInformation"),
 );
 const IdentityInformation = lazy(
-  () => import('../pages/Profile/IdentityInformation'),
+  () => import("../pages/Profile/IdentityInformation"),
 );
 const WorkPlaceLocation = lazy(
-  () => import('../pages/Profile/WorkplaceLocation'),
+  () => import("../pages/Profile/WorkplaceLocation"),
 );
-const WorkSkills = lazy(() => import('../pages/Profile/WorkSkills'));
+const WorkSkills = lazy(() => import("../pages/Profile/WorkSkills"));
 const EducationalBackground = lazy(
-  () => import('../pages/Profile/EducationalBackground'),
+  () => import("../pages/Profile/EducationalBackground"),
 );
-const WorkHistory = lazy(() => import('../pages/Profile/WorkHistory'));
+const WorkHistory = lazy(() => import("../pages/Profile/WorkHistory"));
 const EditWorkCalendarPage = lazy(
-  () => import('../pages/work-calendar/EditWorkCalendarPage'),
+  () => import("../pages/work-calendar/EditWorkCalendarPage"),
 );
-const WalletPage = lazy(() => import('../pages/finance/WalletPage'));
+const WalletPage = lazy(() => import("../pages/finance/WalletPage"));
 
-const FinanceLayout = lazy(() => import('../pages/FinanceLayout'));
+const FinanceLayout = lazy(() => import("../pages/FinanceLayout"));
 
-const OrdersPage = lazy(()=>import('../pages/orders/OrdersPage'))
+const OrdersPage = lazy(() => import("../pages/orders/OrdersPage"));
 
 const routes: RouteObject[] = [
   {
@@ -88,6 +88,14 @@ const routes: RouteObject[] = [
           { path: "Work-History", element: <WorkHistory /> },
         ],
       },
+      {
+        path: "reviews",
+        element: <Reviews />,
+      },
+      {
+        path:"orders",
+        element:<OrdersPage/>
+      }
     ],
   },
 ];
