@@ -1,6 +1,6 @@
 import { person_1 } from '../../assets/images/dev';
 import QuestionCard from '../../components/cards/QuestionCard';
-import ReviewCard from '../../components/cards/ReviewCard';
+// import ReviewCard from '../../components/cards/ReviewCard';
 import {
   CommentsIcon,
   EditIcon,
@@ -29,7 +29,7 @@ export default function AnswersPage() {
         onComments={() => console.log('comments')}
       />
 
-      <ReviewCard
+      {/* <ReviewCard
         avatar={person_1}
         name="مژگان موفقی"
         role="وکیل پایه یک کانون وکلای دادگستری"
@@ -38,7 +38,7 @@ export default function AnswersPage() {
         isVerified
         VerifiedIcon={<VerifiedIcon className="text-accent-blue" />}
         StarIcon={<StarIcon className="text-global-5" />}
-      />
+      /> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import DataGrid from '../../components/tables/DataGrid/DataGrid';
+import DataGrid from '../../components/tables/DataTable/DataGrid';
 import { StatusBadge } from '../../components/ui/badges/StatusBadge';
 import { FilterIcon } from '../../components/ui/icons';
 import { SearchInput } from '../../components/ui/inputs';

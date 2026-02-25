@@ -2,6 +2,7 @@ import { lazy } from "react";
 import type { RouteObject } from "react-router-dom";
 import EvaluationRequests from "../pages/legal-assessments/EvaluationRequests";
 
+const Support = lazy(() => import("../pages/support/Support"));
 const SettlementRequest = lazy(
   () => import("../pages/finance/SettlementRequest"),
 );
@@ -66,7 +67,8 @@ const routes: RouteObject[] = [
         children: [
           { path: "/financal/wallet", element: <WalletPage /> },
           {
-            path: "/financal/SettlementRequest", element : <SettlementRequest/>
+            path: "/financal/SettlementRequest",
+            element: <SettlementRequest />,
           },
         ],
       },
@@ -104,6 +106,10 @@ const routes: RouteObject[] = [
       {
         path: "orders",
         element: <OrdersPage />,
+      },
+      {
+        path: "support",
+        element: <Support/>,
       },
     ],
   },

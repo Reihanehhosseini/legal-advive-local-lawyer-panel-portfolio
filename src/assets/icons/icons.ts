@@ -9,6 +9,7 @@ import {
   HiOutlineTrash,
   HiOutlineCreditCard,
   HiUpload,
+  HiPlusCircle,
 } from "react-icons/hi";
 import { IoCameraOutline, IoSearchSharp } from "react-icons/io5";
 import { CgDanger } from "react-icons/cg";
@@ -39,4 +40,5 @@ export {
   HiOutlineCreditCard,
   HiUpload,
   GoAlert,
+  HiPlusCircle,
 };
