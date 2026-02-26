@@ -66,7 +66,6 @@ export default function WorkCalendarPage() {
             </button>
             <button
               type="button"
-              onClick={handleEditWorkCalendar}
               className="flex items-center gap-x-1.5 py-1 px-3 bg-global-4 rounded-full"
             >
               <HiOutlinePencilAlt size={20} />
@@ -75,10 +74,14 @@ export default function WorkCalendarPage() {
           </div>
         </div>
 
-        <div className="col-span-2 lg:col-span-1 min-h-50 bg-global-4 rounded-2xl dashed-box flex flex-col gap-y-2.5 items-center justify-center text-text-secondary">
+        <button
+          onClick={handleEditWorkCalendar}
+          className="col-span-2 lg:col-span-1 min-h-50 bg-global-4 rounded-2xl dashed-box flex flex-col gap-y-2.5 items-center justify-center text-text-secondary"
+        >
           <HiOutlineCalendar size={52} />
+
           <p>افزودن تقویم کاری</p>
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
-import Header from '../components/layouts/header';
-import Footer from '../components/layouts/footer';
-import Breadcrumb from '../components/breadcrumbs/Breadcrumb';
-import { person_1 } from '../assets/images/dev';
+import { Link, Outlet, useLocation } from "react-router-dom";
+import Header from "../components/layouts/header";
+import Footer from "../components/layouts/footer";
+import Breadcrumb from "../components/breadcrumbs/Breadcrumb";
+import { person_1 } from "../assets/images/dev";
 import {
   ChatIcon,
   CircleUserIcon,
@@ -14,22 +14,14 @@ import {
   LogoutIcon,
   SupportIcon,
   WalletIcon,
-} from '../components/ui/icons';
-import MobileNavigationLinks from '../components/layouts/mobile/MobileNavigationLinks';
-import isRouteActive from '../utils/isLinkActive';
-import SimpleAccordion from '../components/accordion/SimpleAccordion';
-import { ChevronDown } from 'lucide-react';
+} from "../components/ui/icons";
+import MobileNavigationLinks from "../components/layouts/mobile/MobileNavigationLinks";
+import isRouteActive from "../utils/isLinkActive";
+import SimpleAccordion from "../components/accordion/SimpleAccordion";
+import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function MainLayout() {
-  // ===============================================================================================================|
-  // ===========================================>Hooks<=============================================================|
-  // ===============================================================================================================|
-
-  const location = useLocation();
-
-  // ===============================================================================================================|
-  // ===========================================>Static Links<======================================================|
-  // ===============================================================================================================|
   const links = [
     {
       id: 1,
@@ -46,9 +38,17 @@ export default function MainLayout() {
       href: "/profile",
       icon: <CircleUserIcon />,
       list: [
-        { id: 1, label: "اطلاعات شخصی", href: "/profile/personal-information" },
+        {
+          id: 1,
+          label: "اطلاعات شخصی",
+          href: "/profile/personal-information",
+        },
         { id: 2, label: "اطلاعات هویتی", href: "/profile/personal-Identity" },
-        { id: 3, label: "موقعیت محل کار", href: "/profile/WorkPlace-Location" },
+        {
+          id: 3,
+          label: "موقعیت محل کار",
+          href: "/profile/WorkPlace-Location",
+        },
         { id: 4, label: "مهارت های کاری", href: "/profile/Work-Skills" },
         {
           id: 5,
@@ -150,6 +150,25 @@ export default function MainLayout() {
     },
   ];
 
+  const location = useLocation();
+  const locationGenre = location.pathname.slice(1);
+  const [locationBread, setLocationBread] = useState<string | undefined>("");
+
+  useEffect(() => {
+    const breadSelect = links.find((item) => {
+      return item.href.slice(1) === locationGenre.split("/")[0];
+    });
+    if (!breadSelect?.list.length) {
+      setLocationBread(breadSelect?.lable);
+    } else {
+      const subBreadSelect = breadSelect.list.find((item) => {
+        return item.href.split("/")[2] === locationGenre.split("/")[1];
+      });
+
+      setLocationBread(`${breadSelect?.lable}/${subBreadSelect?.label}`);
+    }
+  }, [location.pathname]);
+
   return (
     <div>
       {/* Header */}
@@ -158,8 +177,8 @@ export default function MainLayout() {
       <main className="mb-14 mr-5 lg:mr-0">
         <Breadcrumb
           items={[
-            { label: 'پنل کاربری', href: '/' },
-            { label: 'داشبورد', href: '/' },
+            { label: "پنل کاربری", href: "/" },
+            { label: `${locationBread}`, href: `/${locationGenre}` },
           ]}
         />
         <div className="flex gap-x-1 max-w-360 mx-auto min-h-screen">
@@ -173,16 +192,13 @@ export default function MainLayout() {
                   className="object-cover bg-center"
                 />
               </div>
-              <div className="mb-1">
+              <div className="mb-1 flex flex-col gap-1">
                 <p className="text-base mb-1 text-global-7">میلاد امینی</p>
                 <p className="text-xs font-light text-text-secondary mb-1">
-                  موکل
+                  وکیل پایه یک کانون وکلای دادگستری
                 </p>
-                <p className="text-xs font-light text-text-secondary">
-                  شماره موبایل{' '}
-                  <span className="tracking-[4px] inline-block">
-                    09131234567
-                  </span>
+                <p className="text-xs font-light text-[#8F7300]">
+                  اطلاعات خود را تکمیل کنید
                 </p>
               </div>
             </div>
@@ -191,7 +207,6 @@ export default function MainLayout() {
             <div className="flex flex-col gap-y-1.5 items-start justify-center px-3 py-1">
               {links && links.length > 0
                 ? links.map((i) => {
-                    console.log(location.pathname);
                     const isActive = isRouteActive(i.href, location.pathname);
 
                     return (
@@ -201,17 +216,17 @@ export default function MainLayout() {
                             to={i.href}
                             key={i.id}
                             className={`flex items-center gap-x-4 font-thin w-full py-1.5 px-2.5 rounded-2xl ${
-                              isActive ? 'bg-global-5' : ''
+                              isActive ? "bg-global-5" : ""
                             }`}
                           >
                             <div
                               className={`w-9 h-9 ${
-                                isActive ? 'bg-white' : 'bg-global-5'
+                                isActive ? "bg-white" : "bg-global-5"
                               } rounded-full flex items-center justify-center text-white`}
                             >
                               <div
                                 className={`${
-                                  isActive ? 'text-primary!' : 'text-white'
+                                  isActive ? "text-primary!" : "text-white"
                                 }`}
                               >
                                 {i.icon}
@@ -220,8 +235,8 @@ export default function MainLayout() {
                             <span
                               className={`${
                                 isActive
-                                  ? 'text-white font-bold'
-                                  : 'text-global-7'
+                                  ? "text-white font-bold"
+                                  : "text-global-7"
                               }`}
                             >
                               {i.lable}
@@ -239,20 +254,20 @@ export default function MainLayout() {
                                   }
                                 }}
                                 className={`flex items-center justify-between gap-x-4 font-thin w-full py-1.5 px-2.5 rounded-2xl ${
-                                  isActive ? 'bg-global-5' : 'bg-white'
+                                  isActive ? "bg-global-5" : "bg-white"
                                 }`}
                               >
                                 <div className="flex items-center gap-x-4">
                                   <div
                                     className={`w-9 h-9 ${
-                                      isActive ? 'bg-white' : 'bg-global-5'
+                                      isActive ? "bg-white" : "bg-global-5"
                                     } rounded-full flex items-center justify-center text-white`}
                                   >
                                     <div
                                       className={`${
                                         isActive
-                                          ? 'text-primary!'
-                                          : 'text-white'
+                                          ? "text-primary!"
+                                          : "text-white"
                                       }`}
                                     >
                                       {i.icon}
@@ -261,8 +276,8 @@ export default function MainLayout() {
                                   <span
                                     className={`${
                                       isActive
-                                        ? 'text-white font-bold'
-                                        : 'text-global-7'
+                                        ? "text-white font-bold"
+                                        : "text-global-7"
                                     }`}
                                   >
                                     {i.lable}
@@ -286,7 +301,7 @@ export default function MainLayout() {
                                         key={i.id}
                                         to={i.href}
                                         className={`${
-                                          isActive ? 'bg-global-12' : ' '
+                                          isActive ? "bg-global-12" : " "
                                         } py-3 rounded-2xl px-2 font-light text-global-1`}
                                       >
                                         {i.label}

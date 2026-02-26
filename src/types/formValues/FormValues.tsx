@@ -68,3 +68,11 @@ export interface workHistoryValue {
   isPublic: boolean;
 
 }
+export interface supportValue {
+  unit: string;
+  Priority:string;
+  RelatedTo: string;
+  subject:string;
+  messages:string;
+  attachment:File | null;
+}
