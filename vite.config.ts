@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base:"legal-advive-local-lawyer-panel-portfolio",
+  base:"/legal-advive-local-lawyer-panel-portfolio/",
   plugins: [react(), tailwindcss()],
 
 });
