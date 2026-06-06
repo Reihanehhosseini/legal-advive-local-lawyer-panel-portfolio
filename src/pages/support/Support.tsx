@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SupportS2 from "../../components/support/supportS2";
+import SupportS2 from "../../components/support/SupportS2";
 import SupportS1 from "../../components/support/SupportS1";
 import { type supportValue } from "../../types/formValues/FormValues";
 

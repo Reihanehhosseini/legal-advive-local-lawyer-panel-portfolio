@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
-import { InfoIcon } from '../components/ui/icons';
-import { FormikInputField } from '../components/inputs';
+import { InfoIcon } from './InfoIcon';
+import { FormikInputField } from '../../inputs';
 
 export default function LegalAssessmentsPage() {
   return (
